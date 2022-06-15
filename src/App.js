@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 
 class App extends React.Component{  
   render(){
@@ -10,10 +11,10 @@ class App extends React.Component{
         <div id = 'author'>- {currentAuthor}</div>
 
         <div>
-          <a id = 'tweet-quote' href = {'https://twitter.com/intent/tweet?text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)}>
-            tweet
+          <a id = 'tweet-quote' className='button' href = {'https://twitter.com/intent/tweet?text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)}>
+            t
           </a>
-          <div id = 'new-quote'>Next Quote</div>
+          <div id = 'new-quote' className='button'>Next Quote</div>
         </div>
 
       </div>
