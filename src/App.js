@@ -11,6 +11,12 @@ class App extends React.Component{
       quoteIdx: 0,
       quotesArr: null
     }
+
+    this.generateQuote = this.generateQuote.bind(this);
+  }
+
+  generateQuote(){
+    this.setState({quoteIdx: Math.floor(Math.random() * this.state.quotesArr.length)});
   }
 
   componentDidMount(){    
@@ -46,7 +52,7 @@ class App extends React.Component{
             <a id = 'tweet-quote' className='button' href = {'https://twitter.com/intent/tweet?text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)}>
               t
             </a>
-            <div id = 'new-quote' className='button'>Next Quote</div>
+            <div id = 'new-quote' className='button' onClick={this.generateQuote}>Next Quote</div>
           </div>
         </div>
       );
