@@ -12,10 +12,16 @@ class App extends React.Component{
       quotesArr: null
     }
 
+    this.wrapperRef = React.createRef();
+
     this.generateQuote = this.generateQuote.bind(this);
   }
 
   generateQuote(){
+    const wrapper = this.wrapperRef.current;
+    wrapper.classList.add('fadeIn');
+    setTimeout(() => wrapper.classList.remove('fadeIn'), 1000);
+
     this.setState({quoteIdx: Math.floor(Math.random() * this.state.quotesArr.length)});
   }
 
@@ -45,9 +51,12 @@ class App extends React.Component{
       let currentQuote = this.state.quotesArr[this.state.quoteIdx].quote;
       let currentAuthor = this.state.quotesArr[this.state.quoteIdx].author;
       return (
-        <div id = 'quote-box'>
-          <div id = 'text'>{currentQuote}</div>
-          <div id = 'author'>- {currentAuthor}</div>
+        <div id = 'quote-box' className='fadeIn'>
+          <div ref = {this.wrapperRef}>
+            <div id = 'text'>{currentQuote}</div>
+            <div id = 'author'>- {currentAuthor}</div>
+          </div>
+          
           <div>
             <a id = 'tweet-quote' className='button' href = {'https://twitter.com/intent/tweet?text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)}>
               t
