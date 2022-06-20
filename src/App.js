@@ -49,7 +49,7 @@ class App extends React.Component{
           <div id = 'buttons'>
             <div>
               <a id = 'tweet-quote' className='button' href = {'https://twitter.com/intent/tweet?text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)}>
-                t
+                <i className="fa-brands fa-twitter"></i>
               </a>
               <div id = 'new-quote' className='button' onClick={this.generateQuote}>Next Quote</div>
             </div>
